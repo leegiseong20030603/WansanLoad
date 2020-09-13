@@ -1,3 +1,9 @@
 <resources>
-    <string name="app_name">Wansan</string>
+    <string name="app_name">완산로드</string>
+
+    <string-array name="sharedpreferences">
+        <item>save_user</item>
+        <item>id</item>
+        <item>pw</item>
+    </string-array>
 </resources>

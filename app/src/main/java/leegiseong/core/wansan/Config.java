@@ -3,6 +3,9 @@ package leegiseong.core.wansan;
 import java.net.URL;
 
 public class Config {
-    final String URL = "http://leegiseong.kro.kr/phps/";
-    final String PATH = "T:\\phpmyadmin\\phps\\User\\";
+    final String URL = "http://wansan.kro.kr/";
+    final String PHP_URL = URL+"phps/";
+    final String USER_DIR = "/volume2/Wansan/user";
+
+
 }

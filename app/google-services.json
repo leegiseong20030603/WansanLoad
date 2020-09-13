@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "365614162872",
+    "firebase_url": "https://wansan-ad7c4.firebaseio.com",
+    "project_id": "wansan-ad7c4",
+    "storage_bucket": "wansan-ad7c4.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:365614162872:android:9d890430f91b2db4f9e54d",
+        "android_client_info": {
+          "package_name": "leegiseong.core.wansan"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "365614162872-f7hr7bdib0ekt8tbo0qbobp45c65ss7f.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "leegiseong.core.wansan",
+            "certificate_hash": "3fe515071ee2a0311e5b828039af0ad88d4bed6e"
+          }
+        },
+        {
+          "client_id": "365614162872-st55h7dhfk4g8l4sdaqa6bcqin2knia4.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAzDYA5i2MfVSka2rVIH667Y00sFm4f1fM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "365614162872-st55h7dhfk4g8l4sdaqa6bcqin2knia4.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

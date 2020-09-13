@@ -5,7 +5,7 @@ import retrofit2.http.Field;
 import retrofit2.http.FormUrlEncoded;
 import retrofit2.http.POST;
 
-interface User_Interface {
+interface Interface {
 
     // 사용자 회원가입
     @POST("Register.php")
