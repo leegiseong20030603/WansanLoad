@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.Handler;
+import android.util.Log;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -45,13 +46,15 @@ public class Intro extends AppCompatActivity {
                         public void onResponse(Call<User> call, Response<User> response) {
                             User user = response.body();
                             if (user.getResponse()){
-
+                                Intent main = new Intent(Intro.this, Main.class);
+                                startActivity(main);
+                                finish();
                             }
                         }
 
                         @Override
                         public void onFailure(Call<User> call, Throwable t) {
-
+                            Log.d("Intro", t.getMessage());
                         }
                     });
                 }
