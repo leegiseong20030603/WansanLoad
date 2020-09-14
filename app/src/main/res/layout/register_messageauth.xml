@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="50dp"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:text="핸드폰 인증"
+            android:gravity="center"
+            android:textSize="30dp"/>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_marginTop="40dp"
+            android:id="@+id/phoneNumberLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:boxBackgroundColor="#FFFFFF"
+            app:counterEnabled="true"
+            app:counterMaxLength="11"
+            app:errorEnabled="true">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/phoneNumber"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:background="@drawable/box_background"
+                android:inputType="phone"
+                android:hint= "전화번호 ex) 01012345678"
+                android:maxLength="11"
+                android:paddingLeft="10dp"
+                android:singleLine="true" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <LinearLayout
+            android:layout_marginTop="10dp"
+            android:visibility="gone"
+            android:background="@drawable/box_background"
+            android:id="@+id/authCodeContainer"
+            android:layout_width="match_parent"
+            android:layout_height="70dp"
+            android:orientation="vertical">
+
+            <EditText
+                android:paddingLeft="10dp"
+                android:hint="인증 코드"
+                android:id="@+id/authCode"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"/>
+
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/sendAuthCode"
+            android:layout_marginTop="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:background="@drawable/box_background"
+            android:text="인증번호 보내기" />
+
+    </LinearLayout>
+
+</ScrollView>

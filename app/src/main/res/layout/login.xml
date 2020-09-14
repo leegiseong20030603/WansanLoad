@@ -20,98 +20,100 @@
             android:textSize="30dp"
             android:gravity="center"/>
 
-        <LinearLayout
+        <com.google.android.material.textfield.TextInputLayout
             android:layout_marginTop="50dp"
-            android:layout_weight="1"
+            android:id="@+id/id_layout"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical">
+            android:layout_height="wrap_content"
+            app:boxBackgroundColor="#FFFFFF"
+            app:counterEnabled="true"
+            app:counterMaxLength="20"
+            app:errorEnabled="true">
 
-            <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/id_layout"
-                android:layout_marginTop="10dp"
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/input_id"
                 android:layout_width="match_parent"
                 android:layout_height="60dp"
-                app:counterEnabled="true"
-                app:counterMaxLength="20"
-                app:boxStrokeColor="#000000"
-                android:background="@drawable/box_background">
+                android:background="@drawable/box_background"
+                android:hint="아이디"
+                android:maxLength="20"
+                android:paddingLeft="10dp"
+                android:singleLine="true" />
 
-                <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/input_id"
-                    android:paddingLeft="10dp"
-                    android:singleLine="true"
-                    android:maxLength="20"
-                    android:background="@null"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:hint="아아디"/>
+        </com.google.android.material.textfield.TextInputLayout>
 
-            </com.google.android.material.textfield.TextInputLayout>
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/pw_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:boxBackgroundColor="#FFFFFF"
+            app:counterEnabled="true"
+            app:counterMaxLength="20"
+            app:passwordToggleEnabled="true"
+            app:errorEnabled="true">
 
-            <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/pw_layout"
-                android:layout_marginTop="20dp"
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/input_pw"
                 android:layout_width="match_parent"
                 android:layout_height="60dp"
-                app:counterEnabled="true"
-                app:counterMaxLength="20"
-                android:background="@drawable/box_background">
+                android:background="@drawable/box_background"
+                android:inputType="textPassword"
+                android:hint="비밀번호"
+                android:maxLength="20"
+                android:paddingLeft="10dp"
+                android:singleLine="true" />
 
-                <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/input_pw"
-                    android:paddingLeft="10dp"
-                    android:background="@null"
-                    android:singleLine="true"
-                    android:maxLength="20"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:inputType="textVisiblePassword"
-                    android:hint="비밀번호"/>
+        </com.google.android.material.textfield.TextInputLayout>
 
-            </com.google.android.material.textfield.TextInputLayout>
+        <Button
+            android:id="@+id/Login"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/box_background"
+            android:gravity="center"
+            android:text="로그인" />
 
-            <LinearLayout
-                android:layout_marginTop="40dp"
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:layout_marginTop="30dp"
+            android:orientation="horizontal">
+
+            <View
                 android:layout_width="match_parent"
-                android:layout_height="30dp"
-                android:orientation="horizontal">
+                android:layout_height="1dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="5dp"
+                android:layout_weight="1"
+                android:background="#818181" />
 
-                <View
-                    android:layout_marginTop="5dp"
-                    android:layout_gravity="center"
-                    android:layout_weight="1"
-                    android:layout_width="match_parent"
-                    android:layout_height="1dp"
-                    android:background="#818181"/>
-
-                <TextView
-                    android:layout_width="50dp"
-                    android:layout_height="match_parent"
-                    android:layout_gravity="center"
-                    android:gravity="center"
-                    android:textSize="25dp"
-                    android:text="or"/>
-
-                <View
-                    android:layout_marginTop="5dp"
-                    android:layout_gravity="center"
-                    android:layout_weight="1"
-                    android:layout_width="match_parent"
-                    android:layout_height="1dp"
-                    android:background="#818181"/>
-
-            </LinearLayout>
-
-            <Button
-                android:layout_marginTop="40dp"
-                android:text="회원가입"
+            <TextView
+                android:layout_width="50dp"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
                 android:gravity="center"
+                android:text="or"
+                android:textSize="25dp" />
+
+            <View
                 android:layout_width="match_parent"
-                android:layout_height="60dp"
-                android:background="@drawable/box_background" />
+                android:layout_height="1dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="5dp"
+                android:layout_weight="1"
+                android:background="#818181" />
 
         </LinearLayout>
+
+        <Button
+            android:id="@+id/Register"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_marginTop="30dp"
+            android:background="@drawable/box_background"
+            android:gravity="center"
+            android:text="회원가입" />
 
     </LinearLayout>
 
