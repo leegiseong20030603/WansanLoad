@@ -4,7 +4,15 @@
         <!-- Customize your theme here. -->
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
-        <item name="colorAccent">@color/background_text_color</item>
+        <item name="colorAccent">@color/colorAccent</item>
+    </style>
+
+    <style name="TextInputLayout" parent="Theme.AppCompat.Light">
+        <item name="colorControlNormal">@color/background_text_color</item>
+    </style>
+
+    <style name="AgreeCheckBox" parent="Theme.AppCompat.Light">
+        <item name="colorControlNormal">#00C7E1</item>
     </style>
 
 </resources>

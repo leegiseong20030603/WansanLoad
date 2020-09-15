@@ -3,6 +3,8 @@ package leegiseong.core.wansan;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.content.res.ColorStateList;
+import android.content.res.Resources;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
@@ -29,6 +31,9 @@ public class Login extends AppCompatActivity {
         pw_layout = findViewById(R.id.pw_layout);
         Register = findViewById(R.id.Register);
 
+        id_layout.setErrorTextColor(ColorStateList.valueOf(getResources().getColor(R.color.errorTextColor)));
+        pw_layout.setErrorTextColor(ColorStateList.valueOf(getResources().getColor(R.color.errorTextColor)));
+
         Register.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -54,7 +59,6 @@ public class Login extends AppCompatActivity {
             @Override
             public void afterTextChanged(Editable string) {
                 if (string.toString().contains(" ")){
-                    id_layout.findFocus();
                     id_layout.setError("공백은 넣을 수 없습니다.");
                 }else {
                     id_layout.setError(null);

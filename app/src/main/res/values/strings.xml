@@ -13,4 +13,6 @@
         <item>사용자 정보</item>
         <item>완료</item>
     </string-array>
+
+    <string name="personalInformationText">《당사는 《채팅》 기능을 사용한 《사용자》의 부주의로 인하여 발생한 사고에 대해  《개발자 이기성》은 어떠한 책임도 지지 않으며, 모든 책임은 해당 기능을 사용한 《사용자》에게 있습니다.》</string>
 </resources>

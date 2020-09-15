@@ -15,6 +15,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
+import com.google.android.material.textfield.TextInputEditText;
 import com.google.firebase.FirebaseException;
 import com.google.firebase.FirebaseTooManyRequestsException;
 import com.google.firebase.auth.FirebaseAuthInvalidCredentialsException;
@@ -27,7 +28,7 @@ public class RegisterMessageAuth extends Fragment {
 
     RegisterViewModel viewModel;
     PhoneAuthProvider.OnVerificationStateChangedCallbacks mCallbacks;
-    Button sendAuthCode;
+    Button sendAuthCode, MessageAuth;
     EditText phoneNumber;
     LinearLayout authCodeContainer;
 
@@ -37,6 +38,7 @@ public class RegisterMessageAuth extends Fragment {
         View view = inflater.inflate(R.layout.register_messageauth,container,false);
         sendAuthCode = view.findViewById(R.id.sendAuthCode);
         phoneNumber = view.findViewById(R.id.phoneNumber);
+        MessageAuth = view.findViewById(R.id.MessageAuth);
         authCodeContainer = view.findViewById(R.id.authCodeContainer);
         sendAuthCode.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -49,7 +51,7 @@ public class RegisterMessageAuth extends Fragment {
                     Log.d("phone", formatNumberToE164);
                     PhoneAuthProvider.getInstance().verifyPhoneNumber(
                             formatNumberToE164,
-                            60,
+                            30,
                             TimeUnit.SECONDS,
                             getActivity(),
                             mCallbacks
@@ -59,6 +61,12 @@ public class RegisterMessageAuth extends Fragment {
             }
         });
         mCallbacks = new PhoneAuthProvider.OnVerificationStateChangedCallbacks() {
+
+            @Override
+            public void onCodeAutoRetrievalTimeOut(@NonNull String s) {
+                super.onCodeAutoRetrievalTimeOut(s);
+                Toast.makeText(getActivity(),"인증번호 요청 시간이 초과되었습니다. \n인증번호을 재전송해주세요",Toast.LENGTH_LONG).show();
+            }
 
             @Override
             public void onVerificationCompleted(@NonNull PhoneAuthCredential phoneAuthCredential) {

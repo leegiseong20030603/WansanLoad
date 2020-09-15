@@ -21,12 +21,16 @@
             android:gravity="center"/>
 
         <com.google.android.material.textfield.TextInputLayout
+            android:foregroundTint="@color/background_text_color"
+            android:background="@null"
+            android:theme="@style/TextInputLayout"
             android:layout_marginTop="50dp"
             android:id="@+id/id_layout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:boxBackgroundColor="#FFFFFF"
             app:counterEnabled="true"
+            android:focusable="false"
             app:counterMaxLength="20"
             app:errorEnabled="true">
 
@@ -34,6 +38,7 @@
                 android:id="@+id/input_id"
                 android:layout_width="match_parent"
                 android:layout_height="60dp"
+                android:focusable="false"
                 android:background="@drawable/box_background"
                 android:hint="아이디"
                 android:maxLength="20"
@@ -43,12 +48,15 @@
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
+            android:foregroundTint="@color/background_text_color"
+            android:theme="@style/TextInputLayout"
             android:id="@+id/pw_layout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:boxBackgroundColor="#FFFFFF"
             app:counterEnabled="true"
             app:counterMaxLength="20"
+            android:focusable="false"
             app:passwordToggleEnabled="true"
             app:errorEnabled="true">
 
@@ -60,6 +68,7 @@
                 android:inputType="textPassword"
                 android:hint="비밀번호"
                 android:maxLength="20"
+                android:focusable="false"
                 android:paddingLeft="10dp"
                 android:singleLine="true" />
 
