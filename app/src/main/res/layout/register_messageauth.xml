@@ -50,7 +50,7 @@
 
         <LinearLayout
             android:layout_marginTop="20dp"
-            android:visibility="visible"
+            android:visibility="gone"
             android:background="@drawable/box_background"
             android:id="@+id/authCodeContainer"
             android:layout_width="match_parent"
@@ -69,6 +69,7 @@
                 android:background="#000000" />
 
             <EditText
+                android:inputType="number"
                 android:paddingLeft="10dp"
                 android:hint="인증 코드"
                 android:id="@+id/authCode"

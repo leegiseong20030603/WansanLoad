@@ -37,17 +37,16 @@
                     android:id="@+id/personalInformation"
                     android:layout_width="match_parent"
                     android:layout_height="60dp"
-                    android:text="개인정보 동의약관 (필수)"/>
+                    android:text="개인정보 및 앱 사용 동의약관 (필수)"/>
 
                 <ScrollView
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent">
+                    android:layout_height="wrap_content">
 
                     <TextView
                         android:id="@+id/personalInformationText"
                         android:paddingRight="10dp"
                         android:paddingLeft="10dp"
-                        android:text="@string/personalInformationText"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content" />
 

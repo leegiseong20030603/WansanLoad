@@ -14,5 +14,11 @@
         <item>완료</item>
     </string-array>
 
-    <string name="personalInformationText">《당사는 《채팅》 기능을 사용한 《사용자》의 부주의로 인하여 발생한 사고에 대해  《개발자 이기성》은 어떠한 책임도 지지 않으며, 모든 책임은 해당 기능을 사용한 《사용자》에게 있습니다.》</string>
+    <string name="agreeInformationTitle">agreeInformation</string>
+
+    <string name="personalInformationAgreeText">「개인정보보호법 제15조(개인정보의 수집․이용), 제17조(개인정보의 제공), 제18
+조(개인정보의 이용․제공 제한, 제22조(동의를 받는 방법)」에 의거 개인정보처리에
+관하여 고지를 받았으며 본인은 위와 같이 개인정보 수집 및 이용․제공에 동의합니
+다.」</string>
+    <string name="functionUseAgreeText">《당사는 《채팅》 기능을 사용한 《사용자》의 부주의로 인하여 발생한 사고에 대해  《개발자 이기성》은 어떠한 책임도 지지 않으며, 모든 책임은 해당 기능을 사용한 《사용자》에게 있습니다.》</string>
 </resources>

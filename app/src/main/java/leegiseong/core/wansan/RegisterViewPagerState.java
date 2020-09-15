@@ -24,8 +24,8 @@ public class RegisterViewPagerState extends FragmentStatePagerAdapter {
                 return registerMessageAuth;
             }
             case 2:{
-                RegisterUser registerUser = new RegisterUser();
-                return registerUser;
+                RegisterInputUserInformation registerInputUserInformation = new RegisterInputUserInformation();
+                return registerInputUserInformation;
             }
             case 3:{
                 RegisterResult registerResult = new RegisterResult();

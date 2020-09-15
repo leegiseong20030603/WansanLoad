@@ -54,6 +54,7 @@ public class RegisterMessageAuth extends Fragment {
         MessageAuth = view.findViewById(R.id.MessageAuth);
         authCodeContainer = view.findViewById(R.id.authCodeContainer);
         registerViewpager = getActivity().findViewById(R.id.Register_viewPager);
+        authCodeContainer.setVisibility(View.GONE);
         sendAuthCode.setOnClickListener( new View.OnClickListener() {
             @Override
             public void onClick(View view) {

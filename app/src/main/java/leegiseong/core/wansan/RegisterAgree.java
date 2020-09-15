@@ -1,5 +1,6 @@
 package leegiseong.core.wansan;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -23,6 +24,7 @@ public class RegisterAgree extends Fragment {
     TextView personalInformationText, marketingText;
     RegisterViewModel viewModel;
     NoSwipeableViewpager RegisterViewPager;
+    String agreeInformationTitle;
 
     @Nullable
     @Override
@@ -35,10 +37,22 @@ public class RegisterAgree extends Fragment {
         marketingAgree = false;
         personalInformation = view.findViewById(R.id.personalInformation);
         marketing = view.findViewById(R.id.marketing);
+        String personalInformationString = getResources().getString(R.string.personalInformationAgreeText);
+        String functionUseAgreeString = getResources().getString(R.string.functionUseAgreeText);
+        personalInformationText.setText(personalInformationString +"\n\n" + functionUseAgreeString);
+        agreeInformationTitle = getResources().getString(R.string.agreeInformationTitle);
         personalInformation.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
                 personalInformationAgree = b;
+            }
+        });
+        personalInformationText.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent agreeInformation = new Intent(getActivity(), AgreeInformation.class);
+                agreeInformation.putExtra(agreeInformationTitle, personalInformationText.getText().toString());
+                startActivity(agreeInformation);
             }
         });
         marketing.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {

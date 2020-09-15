@@ -7,4 +7,14 @@
     android:orientation="vertical"
     tools:context=".Intro">
 
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="5dp"
+        android:background="@drawable/box_background"
+        android:fontFamily="@font/font"
+        android:gravity="center"
+        android:textSize="40dp"
+        android:text="완산로드\n인드로" />
+
 </LinearLayout>
