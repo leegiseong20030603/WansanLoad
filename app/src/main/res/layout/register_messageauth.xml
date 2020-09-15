@@ -46,16 +46,27 @@
             android:layout_width="match_parent"
             android:layout_height="60dp"
             android:background="@drawable/box_background"
-            android:text="인증번호 보내기" />
+            android:text="인증번호 전송" />
 
         <LinearLayout
             android:layout_marginTop="20dp"
-            android:visibility="gone"
+            android:visibility="visible"
             android:background="@drawable/box_background"
             android:id="@+id/authCodeContainer"
             android:layout_width="match_parent"
-            android:layout_height="130dp"
+            android:layout_height="150dp"
             android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="20dp"
+                android:text="제한 시간 2분"
+                android:gravity="center"/>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="#000000" />
 
             <EditText
                 android:paddingLeft="10dp"
