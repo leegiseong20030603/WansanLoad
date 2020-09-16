@@ -15,6 +15,8 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.lifecycle.ViewModelProvider;
+import androidx.lifecycle.ViewModelProviders;
 
 public class RegisterAgree extends Fragment {
 
@@ -84,6 +86,6 @@ public class RegisterAgree extends Fragment {
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
-        viewModel = new RegisterViewModel();
+        viewModel = ViewModelProviders.of(getActivity()).get(RegisterViewModel.class);
     }
 }

@@ -19,6 +19,7 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.lifecycle.ViewModelProviders;
 
 import com.google.android.material.textfield.TextInputEditText;
 import com.google.firebase.FirebaseException;
@@ -64,6 +65,7 @@ public class RegisterMessageAuth extends Fragment {
                 }else{
                     String formatNumberToE164 = PhoneNumberUtils.formatNumberToE164(getPhoneNumber, "KR");
                     if (authCodeContainer.getVisibility() == View.VISIBLE){
+                        Log.d("MessageAuthResend", "MessageAuthResend");
                         resendVerificationCode(formatNumberToE164, token);
                     }else if (authCodeContainer.getVisibility() == View.GONE) {
                         Log.d("phone", formatNumberToE164);
@@ -99,13 +101,17 @@ public class RegisterMessageAuth extends Fragment {
                             @Override
                             public void onClick(View view) {
                                 dialog.dismiss();
+                                Log.d("MessageAuthPhone", getPhoneNumber);
                                 viewModel.setPhoneNumber(getPhoneNumber);
+                                Log.d("ViewModelPhoneNumber", viewModel.getPhoneNumber());
                                 registerViewpager.setCurrentItem(2);
                             }
                         });
                         dialog = builder.create();
                         dialog.setCanceledOnTouchOutside(false);
                         dialog.show();
+                    }else {
+                        Toast.makeText(getActivity(),"인증코드가 틀립니다.",Toast.LENGTH_LONG).show();
                     }
                 }else {
                     Toast.makeText(getActivity(),"인증코드 6자리을 넣어주세요",Toast.LENGTH_LONG).show();
@@ -123,6 +129,7 @@ public class RegisterMessageAuth extends Fragment {
             @Override
             public void onVerificationCompleted(@NonNull PhoneAuthCredential phoneAuthCredential) {
                 SMS_CODE = phoneAuthCredential.getSmsCode();
+                authCode.setText(SMS_CODE);
                 Log.d("RegisterMessageAuth : ", SMS_CODE);
             }
 
@@ -133,8 +140,7 @@ public class RegisterMessageAuth extends Fragment {
                 if (e instanceof FirebaseAuthInvalidCredentialsException) {
                     Toast.makeText(getActivity(),"옳바르지 않는 전화번호입니다.\n   다시 입력해주세요",Toast.LENGTH_LONG).show();
                 } else if (e instanceof FirebaseTooManyRequestsException) {
-                    // The SMS quota for the project has been exceeded
-                    // ...
+                    Toast.makeText(getActivity(), "비정상적인 많은 요청입니다.", Toast.LENGTH_LONG).show();
                 }
             }
 
@@ -160,6 +166,6 @@ public class RegisterMessageAuth extends Fragment {
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
-        viewModel = new RegisterViewModel();
+        viewModel = ViewModelProviders.of(getActivity()).get(RegisterViewModel.class);
     }
 }

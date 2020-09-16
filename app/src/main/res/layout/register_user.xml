@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <LinearLayout
         android:layout_margin="50dp"
@@ -11,8 +11,128 @@
         android:layout_height="wrap_content"
         android:orientation="vertical">
 
-        
+        <com.google.android.material.textfield.TextInputLayout
+            android:foregroundTint="@color/background_text_color"
+            android:background="@null"
+            android:theme="@style/TextInputLayout"
+            android:layout_marginTop="40dp"
+            android:id="@+id/registerLayoutID"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:boxBackgroundColor="#FFFFFF"
+            app:counterEnabled="true"
+            android:focusable="false"
+            app:counterMaxLength="20"
+            app:errorEnabled="true">
 
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/registerInputID"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:focusable="false"
+                android:background="@drawable/box_background"
+                android:hint="아이디"
+                android:maxLength="20"
+                android:paddingLeft="10dp"
+                android:singleLine="true" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:foregroundTint="@color/background_text_color"
+            android:theme="@style/TextInputLayout"
+            android:id="@+id/registerLayoutPW"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:boxBackgroundColor="#FFFFFF"
+            app:counterEnabled="true"
+            app:counterMaxLength="20"
+            android:focusable="false"
+            app:passwordToggleEnabled="true"
+            app:errorEnabled="true">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/registerInputPW"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:background="@drawable/box_background"
+                android:inputType="textPassword"
+                android:hint="비밀번호"
+                android:maxLength="20"
+                android:focusable="false"
+                android:paddingLeft="10dp"
+                android:singleLine="true" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:foregroundTint="@color/background_text_color"
+            android:theme="@style/TextInputLayout"
+            android:id="@+id/registerLayoutRPW"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:boxBackgroundColor="#FFFFFF"
+            app:counterEnabled="true"
+            app:counterMaxLength="20"
+            android:focusable="false"
+            app:passwordToggleEnabled="true"
+            app:errorEnabled="true">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/registerInputRPW"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:background="@drawable/box_background"
+                android:inputType="textPassword"
+                android:hint="확인 비밀번호"
+                android:maxLength="20"
+                android:focusable="false"
+                android:paddingLeft="10dp"
+                android:singleLine="true" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:foregroundTint="@color/background_text_color"
+            android:background="@null"
+            android:theme="@style/TextInputLayout"
+            android:id="@+id/registerLayoutGrade"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:boxBackgroundColor="#FFFFFF"
+            app:counterEnabled="true"
+            android:focusable="false"
+            app:counterMaxLength="5"
+            app:errorEnabled="true">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/registerInputGrade"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:focusable="false"
+                android:background="@drawable/box_background"
+                android:hint="학번 ex) 20815"
+                android:maxLength="5"
+                android:inputType="number"
+                android:paddingLeft="10dp"
+                android:singleLine="true" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <View
+            android:layout_marginTop="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#000000" />
+
+        <Button
+            android:id="@+id/registerUser"
+            android:layout_marginTop="20dp"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:background="@drawable/box_background"
+            android:gravity="center"
+            android:text="회원가입" />
     </LinearLayout>
 
 </ScrollView>
