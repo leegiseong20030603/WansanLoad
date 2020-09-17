@@ -3,7 +3,6 @@ package leegiseong.core.wansan;
 import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.Context;
-import android.content.DialogInterface;
 import android.os.Bundle;
 import android.telephony.PhoneNumberUtils;
 import android.util.Log;
@@ -21,10 +20,8 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProviders;
 
-import com.google.android.material.textfield.TextInputEditText;
 import com.google.firebase.FirebaseException;
 import com.google.firebase.FirebaseTooManyRequestsException;
-import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseAuthInvalidCredentialsException;
 import com.google.firebase.auth.PhoneAuthCredential;
 import com.google.firebase.auth.PhoneAuthProvider;
@@ -33,7 +30,7 @@ import java.util.concurrent.TimeUnit;
 
 public class RegisterMessageAuth extends Fragment {
 
-    RegisterViewModel viewModel;
+    RegisterPhoneNumberViewModel viewModel;
     PhoneAuthProvider.OnVerificationStateChangedCallbacks mCallbacks;
     Button sendAuthCode, MessageAuth;
     EditText phoneNumber, authCode;
@@ -64,6 +61,7 @@ public class RegisterMessageAuth extends Fragment {
                     Toast.makeText(view.getContext(), "전화번호을 옳바르게 넣어주세요.",Toast.LENGTH_LONG).show();
                 }else{
                     String formatNumberToE164 = PhoneNumberUtils.formatNumberToE164(getPhoneNumber, "KR");
+                    viewModel.getPhoneNumber().setValue(formatNumberToE164);
                     if (authCodeContainer.getVisibility() == View.VISIBLE){
                         Log.d("MessageAuthResend", "MessageAuthResend");
                         resendVerificationCode(formatNumberToE164, token);
@@ -101,9 +99,6 @@ public class RegisterMessageAuth extends Fragment {
                             @Override
                             public void onClick(View view) {
                                 dialog.dismiss();
-                                Log.d("MessageAuthPhone", getPhoneNumber);
-                                viewModel.setPhoneNumber(getPhoneNumber);
-                                Log.d("ViewModelPhoneNumber", viewModel.getPhoneNumber());
                                 registerViewpager.setCurrentItem(2);
                             }
                         });
@@ -131,6 +126,7 @@ public class RegisterMessageAuth extends Fragment {
                 SMS_CODE = phoneAuthCredential.getSmsCode();
                 authCode.setText(SMS_CODE);
                 Log.d("RegisterMessageAuth : ", SMS_CODE);
+                Log.d("RegisterMessageAuth P: ", phoneAuthCredential.getProvider());
             }
 
             @Override
@@ -166,6 +162,6 @@ public class RegisterMessageAuth extends Fragment {
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
-        viewModel = ViewModelProviders.of(getActivity()).get(RegisterViewModel.class);
+        viewModel = ViewModelProviders.of(getActivity()).get(RegisterPhoneNumberViewModel.class);
     }
 }

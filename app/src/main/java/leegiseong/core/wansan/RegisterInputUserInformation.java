@@ -14,10 +14,11 @@ import androidx.lifecycle.ViewModelProviders;
 
 public class RegisterInputUserInformation extends Fragment {
 
-    RegisterViewModel viewModel;
+    RegisterAgreeViewModel agreeViewModel;
+    RegisterPhoneNumberViewModel phoneNumberViewModel;
     String phoneNumber, agree;
     Button registerUser;
-    String TAG = "ViewModel";
+    String TAG = "RVM_Value";
 
     @Nullable
     @Override
@@ -27,8 +28,8 @@ public class RegisterInputUserInformation extends Fragment {
         registerUser.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Log.d("ViewModelAgree",agree);
-                Log.d("ViewModelPhoneNumber",phoneNumber);
+                Log.d(TAG,agree);
+                Log.d(TAG,phoneNumber);
             }
         });
         return view;
@@ -37,8 +38,9 @@ public class RegisterInputUserInformation extends Fragment {
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
-        viewModel = ViewModelProviders.of(getActivity()).get(RegisterViewModel.class);
-        agree = viewModel.getAgree();
-        phoneNumber = viewModel.getPhoneNumber();
+        phoneNumberViewModel = ViewModelProviders.of(getActivity()).get(RegisterPhoneNumberViewModel.class);
+        agreeViewModel = ViewModelProviders.of(getActivity()).get(RegisterAgreeViewModel.class);
+        phoneNumber = phoneNumberViewModel.getPhoneNumber().getValue();
+        agree = agreeViewModel.getAgree().getValue();
     }
 }

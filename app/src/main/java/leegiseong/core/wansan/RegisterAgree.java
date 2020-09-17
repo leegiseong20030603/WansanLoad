@@ -15,7 +15,6 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
-import androidx.lifecycle.ViewModelProvider;
 import androidx.lifecycle.ViewModelProviders;
 
 public class RegisterAgree extends Fragment {
@@ -24,7 +23,7 @@ public class RegisterAgree extends Fragment {
     Button agree;
     Boolean personalInformationAgree, marketingAgree;
     TextView personalInformationText, marketingText;
-    RegisterViewModel viewModel;
+    RegisterAgreeViewModel viewModel;
     NoSwipeableViewpager RegisterViewPager;
     String agreeInformationTitle;
 
@@ -72,9 +71,9 @@ public class RegisterAgree extends Fragment {
                     if (marketingAgree){
                         agree += marketingText.getText().toString();
                     }
-                    viewModel.setAgree(agree);
+                    viewModel.getAgree().setValue(agree);
                     RegisterViewPager.setCurrentItem(1);
-                    Log.d("viewModel Agree", viewModel.getAgree());
+                    Log.d("viewModel Agree", viewModel.getAgree().getValue());
                 }else{
                     Toast.makeText(view.getContext(),"개인정보 동의약관을 체크해주세요.",Toast.LENGTH_LONG).show();
                 }
@@ -86,6 +85,6 @@ public class RegisterAgree extends Fragment {
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
-        viewModel = ViewModelProviders.of(getActivity()).get(RegisterViewModel.class);
+        viewModel = ViewModelProviders.of(getActivity()).get(RegisterAgreeViewModel.class);
     }
 }
