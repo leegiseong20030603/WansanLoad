@@ -9,6 +9,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -21,6 +22,7 @@ public class RegisterAgree extends Fragment {
 
     CheckBox personalInformation, marketing;
     Button agree;
+    LinearLayout personalInformationView, marketingView;
     Boolean personalInformationAgree, marketingAgree;
     TextView personalInformationText, marketingText;
     RegisterAgreeViewModel viewModel;
@@ -36,6 +38,8 @@ public class RegisterAgree extends Fragment {
         marketingText = view.findViewById(R.id.marketingText);
         personalInformationAgree = false;
         marketingAgree = false;
+        personalInformationView = view.findViewById(R.id.personalInformationView);
+        marketingView = view.findViewById(R.id.marketingView);
         personalInformation = view.findViewById(R.id.personalInformation);
         marketing = view.findViewById(R.id.marketing);
         String personalInformationString = getResources().getString(R.string.personalInformationAgreeText);
@@ -48,11 +52,20 @@ public class RegisterAgree extends Fragment {
                 personalInformationAgree = b;
             }
         });
-        personalInformationText.setOnClickListener(new View.OnClickListener() {
+        personalInformationView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent agreeInformation = new Intent(getActivity(), AgreeInformation.class);
                 agreeInformation.putExtra(agreeInformationTitle, personalInformationText.getText().toString());
+                startActivity(agreeInformation);
+            }
+        });
+
+        marketingView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent agreeInformation = new Intent(getActivity(), AgreeInformation.class);
+                agreeInformation.putExtra(agreeInformationTitle, marketingText.getText().toString());
                 startActivity(agreeInformation);
             }
         });
@@ -67,13 +80,14 @@ public class RegisterAgree extends Fragment {
             @Override
             public void onClick(View view) {
                 if (personalInformationAgree){
-                    String agree = personalInformationText.getText().toString()+"\n";
+                    String agree = "";
                     if (marketingAgree){
-                        agree += marketingText.getText().toString();
+                        agree += "개인정보 마케팅 동의\n";
                     }
+                    agree += "개인정보수집 동의\n";
                     viewModel.getAgree().setValue(agree);
                     RegisterViewPager.setCurrentItem(1);
-                    Log.d("viewModel Agree", viewModel.getAgree().getValue());
+                    Log.d("viewModel Agree", agree);
                 }else{
                     Toast.makeText(view.getContext(),"개인정보 동의약관을 체크해주세요.",Toast.LENGTH_LONG).show();
                 }

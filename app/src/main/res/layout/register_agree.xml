@@ -39,18 +39,32 @@
                     android:layout_height="60dp"
                     android:text="개인정보 및 앱 사용 동의약관 (필수)"/>
 
-                <ScrollView
+                <LinearLayout
+                    android:id="@+id/personalInformationView"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
 
                     <TextView
                         android:id="@+id/personalInformationText"
                         android:paddingRight="10dp"
                         android:paddingLeft="10dp"
                         android:layout_width="match_parent"
+                        android:layout_weight="1"
                         android:layout_height="wrap_content" />
 
-                </ScrollView>
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:background="#000000" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="30dp"
+                        android:text="자세히보기"
+                        android:gravity="center" />
+
+                </LinearLayout>
 
             </LinearLayout>
 
@@ -70,19 +84,32 @@
                     android:layout_height="60dp"
                     android:text="마케팅 동의약관 (선택)"/>
 
-                <ScrollView
+                <LinearLayout
+                    android:id="@+id/marketingView"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
 
                     <TextView
                         android:id="@+id/marketingText"
-                        android:text=""
                         android:paddingRight="10dp"
                         android:paddingLeft="10dp"
                         android:layout_width="match_parent"
+                        android:layout_weight="1"
                         android:layout_height="wrap_content" />
 
-                </ScrollView>
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:background="#000000" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="30dp"
+                        android:text="자세히보기"
+                        android:gravity="center" />
+
+                </LinearLayout>
 
             </LinearLayout>
 

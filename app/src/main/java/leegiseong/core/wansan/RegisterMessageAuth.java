@@ -37,7 +37,6 @@ public class RegisterMessageAuth extends Fragment {
     NoSwipeableViewpager registerViewpager;
     String SMS_CODE;
     Dialog dialog;
-    String getPhoneNumber;
     PhoneAuthProvider.ForceResendingToken token;
     LinearLayout authCodeContainer;
 
@@ -56,7 +55,7 @@ public class RegisterMessageAuth extends Fragment {
         sendAuthCode.setOnClickListener( new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                getPhoneNumber = phoneNumber.getText().toString();
+                String getPhoneNumber = phoneNumber.getText().toString();
                 if (getPhoneNumber.length() < 11){
                     Toast.makeText(view.getContext(), "전화번호을 옳바르게 넣어주세요.",Toast.LENGTH_LONG).show();
                 }else{
@@ -87,6 +86,8 @@ public class RegisterMessageAuth extends Fragment {
                 String getAuthCode = authCode.getText().toString();
                 if (getAuthCode.length() == 6){
                     if (getAuthCode.equals(SMS_CODE)){
+                        viewModel.getPhoneNumber().setValue(phoneNumber.getText().toString());
+                        Log.d("RegisterMessageAuth : ", viewModel.getPhoneNumber().getValue());
                         AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
                         LayoutInflater inflater = (LayoutInflater) getActivity().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
                         View OKView = inflater.inflate(R.layout.ok, null);
