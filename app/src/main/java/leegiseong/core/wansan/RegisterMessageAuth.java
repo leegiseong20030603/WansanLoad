@@ -32,7 +32,7 @@ public class RegisterMessageAuth extends Fragment {
 
     RegisterPhoneNumberViewModel viewModel;
     PhoneAuthProvider.OnVerificationStateChangedCallbacks mCallbacks;
-    Button sendAuthCode, MessageAuth;
+    Button sendAuthCode, MessageAuth, passButton;
     EditText phoneNumber, authCode;
     NoSwipeableViewpager registerViewpager;
     String SMS_CODE;
@@ -52,6 +52,13 @@ public class RegisterMessageAuth extends Fragment {
         authCodeContainer = view.findViewById(R.id.authCodeContainer);
         registerViewpager = getActivity().findViewById(R.id.Register_viewPager);
         authCodeContainer.setVisibility(View.GONE);
+        passButton = view.findViewById(R.id.passButton);
+        passButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                registerViewpager.setCurrentItem(2);
+            }
+        });
         sendAuthCode.setOnClickListener( new View.OnClickListener() {
             @Override
             public void onClick(View view) {

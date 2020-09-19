@@ -11,13 +11,12 @@ interface Interface {
     @POST("Register.php")
     @FormUrlEncoded
     Call<User> Register
-    (@Field("User_ID") String User_ID,
-     @Field("User_PW") String User_PW,
-     @Field("User_Name") String User_Name,
-     @Field("User_Email") String User_Email,
-     @Field("User_Birthday") String User_Birthday,
-     @Field("User_Type") String User_Type,
-     @Field("User_Agree") String User_Agree);
+    (@Field("ID") String ID,
+     @Field("PW") String PW,
+     @Field("Name") String Name,
+     @Field("Grade") String Grade,
+     @Field("phone") String phone,
+     @Field("agree") String agree);
 
     // 사용자 로그인
     @POST("Login.php")

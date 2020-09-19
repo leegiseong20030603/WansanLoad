@@ -89,6 +89,15 @@
 
         </LinearLayout>
 
+        <Button
+            android:layout_marginTop="20dp"
+            android:text="넘어가기"
+            android:gravity="center"
+            android:id="@+id/passButton"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:background="@drawable/box_background" />
+
     </LinearLayout>
 
 </ScrollView>
